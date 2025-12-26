@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme {
+    --color-vault-bg: #050505;
+    --color-vault-card: #0c0c0c;
+    --color-vault-accent: #1fd655;
+    --color-vault-danger: #ff4d4d;
+}
+
+@layer base {
+    * {
+        border-radius: 0 !important;
+    }
+
+    body {
+        @apply bg-vault-bg text-gray-100 font-sans antialiased;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-vault-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #222;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-vault-accent);
+}
