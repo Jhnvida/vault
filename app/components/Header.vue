@@ -10,11 +10,15 @@
 
             <div class="flex flex-col items-end">
                 <span class="text-[10px] uppercase font-black opacity-20">Saldo Disponível</span>
-                <span class="text-white text-2xl font-bold">$0,00</span>
+                <span class="text-white text-2xl font-bold">${{ saldo.toFixed(2) }}</span>
             </div>
         </div>
     </header>
 </template>
+
+<script setup lang="ts">
+const { saldo } = useGame()
+</script>
 
 <style scoped>
 @reference "~/assets/css/main.css";
