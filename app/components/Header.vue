@@ -9,7 +9,7 @@
             </nav>
 
             <div class="flex flex-col items-end">
-                <span class="text-[10px] uppercase font-black opacity-20">Saldo Disponível</span>
+                <span class="text-[12px] uppercase font-black opacity-30">Saldo Disponível</span>
                 <span class="text-white text-2xl font-bold">${{ saldo.toFixed(2) }}</span>
             </div>
         </div>
@@ -24,7 +24,7 @@ const { saldo } = useGame()
 @reference "~/assets/css/main.css";
 
 .nav-link {
-    @apply text-[10px] uppercase font-black opacity-30 hover:opacity-100 transition-all no-underline;
+    @apply text-[12px] uppercase font-black opacity-30 hover:opacity-100 transition-all no-underline;
 }
 
 .nav-ativo {
