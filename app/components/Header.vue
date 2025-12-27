@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-const { saldo } = useGame()
+const { saldo } = useGame();
 </script>
 
 <style scoped>

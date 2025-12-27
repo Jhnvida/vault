@@ -19,12 +19,6 @@
 </template>
 
 <script setup lang="ts">
-interface Caixa {
-    id: string;
-    nome: string;
-    custo: number;
-    descricao: string;
-}
-
-defineProps<{ caixa: Caixa }>()
+import type { Caixa } from '~/composables/useGame';
+defineProps<{ caixa: Caixa }>();
 </script>
