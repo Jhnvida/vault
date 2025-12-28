@@ -10,7 +10,7 @@
 
             <div class="flex flex-col items-end">
                 <span class="vault-label">Saldo Disponível</span>
-                <span class="text-white text-2xl font-bold">${{ saldo.toFixed(2) }}</span>
+                <span class="text-white text-2xl font-bold">${{ saldo }}</span>
             </div>
         </div>
     </header>
