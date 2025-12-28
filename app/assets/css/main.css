@@ -6,6 +6,40 @@
     }
 }
 
+@layer components {
+    .vault-title {
+        @apply font-black uppercase italic;
+    }
+
+    .vault-label {
+        @apply text-xs font-black uppercase opacity-30 tracking-wide;
+    }
+
+    .vault-surface {
+        @apply bg-[#0c0c0c] border border-white/5;
+    }
+
+    .vault-surface-hover {
+        @apply transition-all duration-300 hover:border-white/20 hover:bg-white/5 hover:-translate-y-1;
+    }
+
+    .vault-btn {
+        @apply bg-white font-bold text-black uppercase w-full py-4 text-xs cursor-pointer hover:bg-gray-200 transition-colors flex items-center justify-center;
+    }
+
+    .vault-nav-link {
+        @apply text-xs uppercase font-black opacity-30 hover:opacity-100 transition-all no-underline;
+    }
+
+    .vault-nav-active {
+        @apply opacity-100 text-white;
+    }
+
+    .vault-icon-box {
+        @apply w-12 h-12 bg-white/5 flex items-center justify-center;
+    }
+}
+
 ::-webkit-scrollbar {
     width: 4px;
 }

@@ -1,15 +1,15 @@
 <template>
-    <header class="px-10 py-8 border-b border-white/5 bg-vault-bg">
+    <header class="px-10 py-8 border-b border-white/5">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <NuxtLink to="/" class="text-2xl uppercase italic font-black">Vault</NuxtLink>
+            <NuxtLink to="/" class="vault-title text-2xl text-white no-underline">Vault</NuxtLink>
 
             <nav class="flex items-center gap-8">
-                <NuxtLink to="/" class="nav-link" active-class="nav-ativo">Mercado</NuxtLink>
-                <NuxtLink to="/inventario" class="nav-link" active-class="nav-ativo">Inventário</NuxtLink>
+                <NuxtLink to="/" class="vault-nav-link" active-class="vault-nav-active">Mercado</NuxtLink>
+                <NuxtLink to="/inventario" class="vault-nav-link" active-class="vault-nav-active">Inventário</NuxtLink>
             </nav>
 
             <div class="flex flex-col items-end">
-                <span class="text-[12px] uppercase font-black opacity-30">Saldo Disponível</span>
+                <span class="vault-label">Saldo Disponível</span>
                 <span class="text-white text-2xl font-bold">${{ saldo.toFixed(2) }}</span>
             </div>
         </div>
@@ -19,15 +19,3 @@
 <script setup lang="ts">
 const { saldo } = useGame();
 </script>
-
-<style scoped>
-@reference "~/assets/css/main.css";
-
-.nav-link {
-    @apply text-[12px] uppercase font-black opacity-30 hover:opacity-100 transition-all no-underline;
-}
-
-.nav-ativo {
-    @apply opacity-100 text-white;
-}
-</style>
