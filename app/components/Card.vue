@@ -18,12 +18,14 @@
 
         <div class="flex justify-between items-center border-t border-white/10 pt-6 mt-4">
             <span class="vault-label text-gray-600">Custo</span>
-            <span class="text-xl font-bold text-white">${{ caixa.custo }}</span>
+            <span class="text-xl font-bold text-white">{{ moeda(caixa.custo) }}</span>
         </div>
     </NuxtLink>
 </template>
 
 <script setup lang="ts">
 import type { Caixa } from "~/composables/useGame";
+const { moeda } = useGame();
+
 defineProps<{ caixa: Caixa }>();
 </script>

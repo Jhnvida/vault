@@ -10,12 +10,12 @@
 
             <div class="flex flex-col items-end">
                 <span class="vault-label mb-1">Saldo</span>
-                <span class="text-white text-2xl font-bold font-mono">${{ saldo }}</span>
+                <span class="text-white text-2xl font-bold font-mono">{{ moeda(saldo) }}</span>
             </div>
         </div>
     </header>
 </template>
 
 <script setup lang="ts">
-const { saldo } = useGame();
+const { saldo, moeda } = useGame();
 </script>

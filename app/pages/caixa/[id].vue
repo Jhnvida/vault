@@ -22,7 +22,7 @@
                                 <span class="text-xs font-bold uppercase text-gray-300">{{ nivel.nome }}</span>
                             </span>
 
-                            <span class="text-xs font-mono text-gray-500">{{ nivel.chance }}</span>
+                            <span class="text-xs font-mono text-gray-500">{{ chance(nivel.chance) }}</span>
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
 
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-bold uppercase text-gray-300">Total</span>
-                        <span class="text-2xl font-bold uppercase text-gray-300">${{ total }}</span>
+                        <span class="text-2xl font-bold uppercase text-gray-300">{{ total }}</span>
                     </div>
                 </div>
                 <button class="vault-btn w-full">Confirmar</button>
@@ -64,13 +64,13 @@
 <script setup lang="ts">
 const route = useRoute();
 const quantidade = useState("quantidade", () => 1);
-const { niveis, caixas } = useGame();
+const { niveis, caixas, moeda, chance } = useGame();
 
 const caixa = computed(() => {
     return caixas.find((c) => c.id === route.params.id);
 });
 
 const total = computed(() => {
-    return (caixa.value?.custo ?? 0) * quantidade.value;
+    return moeda((caixa.value?.custo ?? 0) * quantidade.value);
 });
 </script>
