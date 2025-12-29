@@ -2,52 +2,68 @@
 
 @layer base {
     body {
-        @apply bg-[#050505] text-gray-100 font-sans antialiased;
+        @apply bg-[#050505] text-gray-200 font-sans antialiased;
     }
 }
 
 @layer components {
+    .vault-container {
+        @apply max-w-7xl mx-auto w-full px-10;
+    }
+
     .vault-title {
-        @apply font-black uppercase italic;
+        @apply font-black uppercase italic tracking-wide text-white;
     }
 
     .vault-label {
-        @apply text-xs font-black uppercase opacity-30 tracking-wide;
+        @apply text-xs font-bold uppercase text-gray-500 tracking-wider;
     }
 
     .vault-surface {
-        @apply bg-[#0c0c0c] border border-white/5;
+        @apply bg-[#0a0a0a] border border-white/10 transition-colors duration-200;
     }
 
     .vault-surface-hover {
-        @apply transition-all duration-300 hover:border-white/20 hover:bg-white/5 hover:-translate-y-1;
+        @apply hover:border-white/30 hover:bg-[#0f0f0f] hover:-translate-y-1 transform transition-all duration-300;
     }
 
     .vault-btn {
-        @apply bg-white font-bold text-black uppercase w-full py-4 text-xs cursor-pointer hover:bg-gray-200 transition-colors flex items-center justify-center;
+        @apply bg-white text-black font-bold uppercase text-xs py-4 px-6 
+               cursor-pointer transition-colors duration-200 
+               hover:bg-gray-200 flex items-center justify-center gap-2;
+    }
+
+    .vault-btn-outline {
+        @apply bg-transparent border border-white/10 text-gray-500 font-bold text-sm
+               hover:border-white/50 hover:text-white transition-all cursor-pointer flex items-center justify-center;
+    }
+
+    .vault-btn-outline.active {
+        @apply bg-white text-black border-white;
     }
 
     .vault-nav-link {
-        @apply text-xs uppercase font-black opacity-30 hover:opacity-100 transition-all no-underline;
+        @apply text-sm font-bold text-gray-500 hover:text-white transition-colors no-underline uppercase tracking-wide;
     }
 
     .vault-nav-active {
-        @apply opacity-100 text-white;
+        @apply text-white;
     }
 
     .vault-icon-box {
-        @apply w-12 h-12 bg-white/5 flex items-center justify-center;
+        @apply w-12 h-12 bg-white/5 flex items-center justify-center text-white/60;
     }
 }
 
 ::-webkit-scrollbar {
-    width: 4px;
+    width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #0c0c0c;
+    background: #050505;
 }
 
 ::-webkit-scrollbar-thumb {
     background: #333;
+    border-radius: 3px;
 }
