@@ -5,7 +5,7 @@
 
             <nav class="flex items-center gap-10">
                 <NuxtLink to="/" class="vault-nav-link" active-class="vault-nav-active">Mercado</NuxtLink>
-                <NuxtLink to="/inventario" class="vault-nav-link" active-class="vault-nav-active">Inventário</NuxtLink>
+                <NuxtLink to="/" class="vault-nav-link" active-class="vault-nav-active">Inventário</NuxtLink>
             </nav>
 
             <div class="flex flex-col items-end">
