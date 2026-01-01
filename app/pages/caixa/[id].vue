@@ -22,7 +22,7 @@
                                 <span class="text-xs font-bold uppercase text-gray-300">{{ nivel.nome }}</span>
                             </span>
 
-                            <span class="text-xs font-mono text-gray-500">{{ chance(nivel.chance) }}</span>
+                            <span class="text-xs text-gray-500">{{ chance(nivel.chance) }}</span>
                         </div>
                     </div>
                 </div>
@@ -48,26 +48,31 @@
 
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-bold uppercase text-gray-300">Total</span>
-                        <span class="text-2xl font-bold uppercase text-white">{{ total }}</span>
+                        <span class="text-2xl font-bold uppercase text-white">{{ moeda(total) }}</span>
                     </div>
                 </div>
-                <button class="vault-btn w-full">Confirmar</button>
+                <button class="vault-btn w-full disabled:opacity-30 disabled:grayscale transition-all duration-300" :disabled="!custo">
+                    Confirmar
+                </button>
             </div>
 
             <div class="col-span-8">
-                <div class="vault-surface w-full min-h-100 flex flex-col items-center justify-center gap-4 overflow-hidden py-3">
-                    <div v-for="(linha, idx) in linhas" :key="idx" class="flex items-center gap-3">
-                        <div v-for="(item, i) in linha" :key="i" class="vault-surface relative p-4 w-36 h-36 flex flex-col justify-between">
+                <div class="vault-surface w-full min-h-full flex flex-col items-center justify-center gap-4 overflow-hidden py-3">
+                    <div v-for="(linha, index) in linhas" :key="index" class="flex items-center gap-3">
+                        <div v-for="(item, index) in linha" :key="index" class="vault-surface w-40 h-52 flex flex-col relative p-4">
                             <div class="absolute top-0 left-0 right-0 h-1" :style="{ background: item.nivel.cor }"></div>
 
-                            <span class="vault-label block mt-2" :style="{ color: item.nivel.cor }">
+                            <span class="text-[11px] font-black uppercase" :style="{ color: item.nivel.cor }">
                                 {{ item.nivel.nome }}
                             </span>
 
-                            <div class="border-t border-white/10 pt-2">
-                                <span class="text-lg font-bold text-white">
-                                    {{ moeda(item.valor) }}
-                                </span>
+                            <div class="flex-1 flex items-center justify-center">
+                                <Icon name="lucide:box" :style="{ color: item.nivel.cor }" class="w-14 h-14 drop-shadow-lg opacity-70" />
+                            </div>
+
+                            <div class="mt-4 pt-3 border-t border-white/5 flex flex-col gap-1">
+                                <span class="text-[10px] text-gray-500 font-bold uppercase">Valor Estimado</span>
+                                <span class="text-xs font-bold text-white">{{ moeda(item.valor) }}</span>
                             </div>
                         </div>
                     </div>
@@ -80,14 +85,18 @@
 <script setup lang="ts">
 const route = useRoute();
 const quantidade = useState("quantidade", () => 1);
-const { niveis, caixas, moeda, chance, gerarLinha } = useGame();
+const { saldo, niveis, caixas, gerarLinha, chance, moeda } = useGame();
 
 const caixa = computed(() => {
     return caixas.find((c) => c.id === route.params.id);
 });
 
 const total = computed(() => {
-    return moeda((caixa.value?.custo ?? 0) * quantidade.value);
+    return (caixa.value?.custo ?? 0) * quantidade.value;
+});
+
+const custo = computed(() => {
+    return (saldo.value ?? 0) >= total.value;
 });
 
 const linhas = computed(() => {
