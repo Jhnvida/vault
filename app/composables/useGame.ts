@@ -45,7 +45,7 @@ export const formatarChance = (valor: number): string => {
 };
 
 export const useGame = () => {
-    const saldo = useState<number>("saldo", () => Math.round(Math.random() * 500));
+    const saldo = useState<number>("saldo", () => 1000);
     const inventario = useState<Item[]>("inventario", () => []);
 
     const formatadores = {
@@ -78,5 +78,38 @@ export const useGame = () => {
         });
     };
 
-    return { saldo, inventario, niveis: Niveis, caixas: Caixas, gerarLinha, ...formatadores };
+    const adicionarInventario = (item: Item) => {
+        inventario.value.push(item);
+    };
+
+    const venderItem = (item: Item) => {
+        saldo.value += item.valor;
+        inventario.value = inventario.value.filter((i) => i.id !== item.id);
+    };
+
+    const contarItens = (nome: string) => {
+        return inventario.value.filter((item) => item.nivel.nome === nome).length;
+    };
+
+    const processarCompra = (valor: number): boolean => {
+        if (saldo.value >= valor) {
+            saldo.value -= valor;
+            return true;
+        }
+
+        return false;
+    };
+
+    return {
+        saldo,
+        inventario,
+        niveis: Niveis,
+        caixas: Caixas,
+        gerarLinha,
+        adicionarInventario,
+        venderItem,
+        contarItens,
+        processarCompra,
+        ...formatadores,
+    };
 };

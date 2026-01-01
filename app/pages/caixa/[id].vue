@@ -51,13 +51,19 @@
                         <span class="text-2xl font-bold uppercase text-white">{{ moeda(total) }}</span>
                     </div>
                 </div>
-                <button class="vault-btn w-full disabled:opacity-30 disabled:grayscale transition-all duration-300" :disabled="!custo">
+                <button
+                    @click="abrirCaixa"
+                    class="vault-btn w-full disabled:opacity-30 disabled:grayscale transition-all duration-300"
+                    :disabled="!compravel || girando"
+                >
                     Confirmar
                 </button>
             </div>
 
             <div class="col-span-8">
-                <div class="vault-surface w-full min-h-full flex flex-col items-center justify-center gap-4 overflow-hidden py-3">
+                <div class="vault-surface relative w-full min-h-full flex flex-col items-center justify-center gap-4 overflow-hidden py-3">
+                    <div class="absolute top-0 bottom-0 w-0.5 h-full bg-white/5"></div>
+
                     <div v-for="(linha, index) in linhas" :key="index" class="flex items-center gap-3">
                         <div v-for="(item, index) in linha" :key="index" class="vault-surface w-40 h-52 flex flex-col relative p-4">
                             <div class="absolute top-0 left-0 right-0 h-1" :style="{ background: item.nivel.cor }"></div>
@@ -84,8 +90,12 @@
 
 <script setup lang="ts">
 const route = useRoute();
+
 const quantidade = useState("quantidade", () => 1);
-const { saldo, niveis, caixas, gerarLinha, chance, moeda } = useGame();
+const girando = useState("girando", () => false);
+const linhas = useState<Item[][]>("linhas", () => []);
+
+const { saldo, niveis, caixas, gerarLinha, moeda, chance, processarCompra, adicionarInventario } = useGame();
 
 const caixa = computed(() => {
     return caixas.find((c) => c.id === route.params.id);
@@ -95,12 +105,27 @@ const total = computed(() => {
     return (caixa.value?.custo ?? 0) * quantidade.value;
 });
 
-const custo = computed(() => {
+const compravel = computed(() => {
     return (saldo.value ?? 0) >= total.value;
 });
 
-const linhas = computed(() => {
-    if (!caixa.value) return [];
-    return Array.from({ length: quantidade.value }, () => gerarLinha(caixa.value!));
-});
+const abrirCaixa = () => {
+    if (!caixa.value || !compravel.value || girando.value) return;
+
+    if (processarCompra(total.value)) {
+        const novas = Array.from({ length: quantidade.value }, () => gerarLinha(caixa.value!));
+
+        linhas.value = novas;
+        girando.value = true;
+
+        setTimeout(() => {
+            girando.value = false;
+
+            novas.forEach((linha) => {
+                const vencedor = linha[45];
+                adicionarInventario(vencedor!);
+            });
+        }, 4000);
+    }
+};
 </script>
