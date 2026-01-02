@@ -34,8 +34,7 @@
     }
 
     .vault-btn-outline {
-        @apply bg-transparent border border-white/10 text-gray-500 font-bold text-sm
-               hover:border-white/50 hover:text-white transition-all cursor-pointer flex items-center justify-center;
+        @apply bg-transparent border border-white/10 text-gray-500 font-bold text-sm hover:border-white/50 hover:text-white transition-all cursor-pointer  flex items-center justify-center text-center px-4;
     }
 
     .vault-btn-outline.active {
