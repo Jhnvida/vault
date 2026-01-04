@@ -1,75 +1,34 @@
-# Nuxt Minimal Starter
+# Simulador de Caixas
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Este é um projeto simples de simulação de abertura de caixas. O objetivo é comprar caixas, ganhar itens de diferentes raridades e gerenciar o seu saldo.
 
-## Setup
+![Demonstração](./public/screenshots/preview.png)
 
-Make sure to install dependencies:
+## 🕹️ Como funciona
 
-```bash
-# npm
-npm install
+-   **Mercado:** Você escolhe e compra diferentes tipos de caixas.
+-   **Abertura:** Existe uma animação de roleta para revelar o item ganho.
+-   **Venda:** Você pode vender seus itens para recuperar dinheiro e continuar jogando.
+-   **Lotes:** É possível abrir até 10 caixas ao mesmo tempo.
 
-# pnpm
-pnpm install
+---
 
-# yarn
-yarn install
+## 🎲 Chances e Valores
 
-# bun
-bun install
-```
+Cada item tem uma raridade. Quanto mais difícil de sair, mais ele vale:
 
-## Development Server
+| Nível        | Chance | Valor        |
+| ------------ | ------ | ------------ |
+| **Comum**    | 75%    | 0.4x o custo |
+| **Incomum**  | 18%    | 1.2x o custo |
+| **Raro**     | 5%     | 3.5x o custo |
+| **Épico**    | 1.5%   | 12x o custo  |
+| **Relíquia** | 0.5%   | 45x o custo  |
 
-Start the development server on `http://localhost:3000`:
+---
 
-```bash
-# npm
-npm run dev
+## 🛠️ Tecnologias usadas
 
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+-   **Nuxt 3**
+-   **TypeScript**
+-   **Tailwind CSS**
