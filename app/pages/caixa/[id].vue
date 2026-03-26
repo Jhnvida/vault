@@ -86,7 +86,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Item } from "~/composables/useGame";
+import type { Item } from "~/types/game";
 
 const route = useRoute();
 const qtd = ref(1);
@@ -94,7 +94,10 @@ const girando = ref(false);
 const aberto = ref(false);
 const strips = ref<Item[][]>([]);
 
-const { saldo, niveis, caixas, gerarLinha, moeda, chance, comprar, adicionar } = useGame();
+const { saldo, comprar } = useBalance();
+const { niveis, caixas } = useGameData();
+const { gerarLinha } = useRoulette();
+const { adicionar } = useInventory();
 
 const caixa = computed(() => caixas.find((c) => c.id === route.params.id));
 const total = computed(() => (caixa.value?.custo ?? 0) * qtd.value);

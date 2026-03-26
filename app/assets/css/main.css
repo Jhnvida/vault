@@ -53,12 +53,12 @@
         @apply bg-text-primary text-surface-base border-text-primary;
     }
 
-    .vault-nav-link {
-        @apply text-xs font-semibold text-text-tertiary hover:text-text-primary transition-colors no-underline uppercase tracking-widest relative py-2;
+    .vault-nav-item {
+        @apply flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-widest text-text-muted hover:text-text-secondary transition-all no-underline;
     }
 
     .vault-nav-active {
-        @apply text-text-primary after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-text-primary after:rounded-full;
+        @apply bg-text-primary text-surface-base hover:text-surface-base;
     }
 }
 

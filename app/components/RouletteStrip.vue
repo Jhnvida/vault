@@ -1,7 +1,7 @@
 <template>
     <div class="relative w-full h-56 md:h-60 bg-surface-raised border border-border-default flex items-center overflow-hidden rounded-xl">
-        <div class="absolute inset-y-0 left-0 w-28 bg-gradient-to-r from-surface-raised to-transparent z-10 pointer-events-none" />
-        <div class="absolute inset-y-0 right-0 w-28 bg-gradient-to-l from-surface-raised to-transparent z-10 pointer-events-none" />
+        <div class="absolute inset-y-0 left-0 w-28 bg-linear-to-r from-surface-raised to-transparent z-10 pointer-events-none" />
+        <div class="absolute inset-y-0 right-0 w-28 bg-linear-to-l from-surface-raised to-transparent z-10 pointer-events-none" />
 
         <div class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 z-20 pointer-events-none flex flex-col items-center">
             <div class="w-px flex-1 bg-white/15" />
@@ -55,8 +55,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Item } from "~/composables/useGame";
-const { moeda } = useGame();
+import type { Item } from "~/types/game";
 
 defineProps<{
     items: Item[];

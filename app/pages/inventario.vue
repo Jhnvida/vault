@@ -53,7 +53,8 @@
 </template>
 
 <script setup lang="ts">
-const { inventario, niveis, moeda, venderItem, contarItens } = useGame();
+const { inventario, venderItem, contarItens } = useInventory();
+const { niveis } = useGameData();
 const filtro = ref<string | null>(null);
 
 const items = computed(() => {

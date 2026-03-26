@@ -25,8 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Caixa } from "~/composables/useGame";
-const { moeda } = useGame();
+import type { Caixa } from "~/types/game";
 
 defineProps<{ caixa: Caixa; index: number }>();
 </script>

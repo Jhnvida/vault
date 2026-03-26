@@ -31,8 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Item } from "~/composables/useGame";
-const { moeda } = useGame();
+import type { Item } from "~/types/game";
 
 defineProps<{ item: Item }>();
 defineEmits<{ vender: [item: Item] }>();
