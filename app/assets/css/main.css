@@ -54,11 +54,11 @@
     }
 
     .vault-nav-item {
-        @apply flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-widest text-text-muted hover:text-text-secondary transition-all no-underline;
+        @apply text-xs font-semibold uppercase tracking-widest text-text-muted hover:text-text-primary transition-colors no-underline border-b border-transparent pb-0.5;
     }
 
     .vault-nav-active {
-        @apply bg-text-primary text-surface-base hover:text-surface-base;
+        @apply text-text-primary border-text-primary;
     }
 }
 

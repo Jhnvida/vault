@@ -9,16 +9,16 @@ export const Niveis: Nivel[] = [
 ];
 
 export const Caixas: Caixa[] = [
-  { id: "alpha", nome: "Caixa Alpha", custo: 10, descricao: "Processamento básico de entrada." },
-  { id: "beta", nome: "Caixa Beta", custo: 50, descricao: "Otimização de rotinas iniciais." },
-  { id: "gamma", nome: "Caixa Gamma", custo: 150, descricao: "Filtros de busca aprimorados." },
-  { id: "delta", nome: "Caixa Delta", custo: 500, descricao: "Protocolo de extração estável." },
-  { id: "epsilon", nome: "Caixa Epsilon", custo: 1200, descricao: "Algoritmos de alta frequência." },
-  { id: "zeta", nome: "Caixa Zeta", custo: 3000, descricao: "Sintetização de dados corporativos." },
-  { id: "iota", nome: "Caixa Iota", custo: 7500, descricao: "Arquitetura de dados quânticos." },
-  { id: "sigma", nome: "Caixa Sigma", custo: 15000, descricao: "Otimização máxima de recursos." },
-  { id: "omega", nome: "Caixa Omega", custo: 50000, descricao: "O ápice do processamento de ativos." },
-  { id: "slow", nome: "Caixa Slow", custo: 100000, descricao: "Homenagem ao primeiro milionário." },
+  { id: "caixote", nome: "Caixote", custo: 10, descricao: "Simples e direta. Todo mundo começa aqui." },
+  { id: "enferrujada", nome: "Enferrujada", custo: 50, descricao: "Velha e resistente. Ainda pode esconder surpresas." },
+  { id: "lacrada", nome: "Lacrada", custo: 150, descricao: "Ninguém abriu antes de você. É tudo seu." },
+  { id: "blindada", nome: "Blindada", custo: 500, descricao: "Construída pra guardar o que realmente vale." },
+  { id: "cofre", nome: "Cofre", custo: 1200, descricao: "Mais do que uma caixa - é uma aposta séria." },
+  { id: "preciosa", nome: "Preciosa", custo: 3000, descricao: "O nome já diz tudo." },
+  { id: "cripta", nome: "Cripta", custo: 7500, descricao: "Guardada nas profundezas. Vale a pena escavar." },
+  { id: "lendaria", nome: "Lendária", custo: 15000, descricao: "Rumores circulam. Fortunas foram ganhas aqui." },
+  { id: "absurda", nome: "Absurda", custo: 50000, descricao: "Pra quem não tem medo de arriscar tudo." },
+  { id: "absoluta", nome: "Absoluta", custo: 100000, descricao: "Não existe nada maior. Literalmente." },
 ];
 
 export const useGameData = () => ({
