@@ -1,7 +1,8 @@
 <div align="center">
-  <img src="./public/screenshots/01.png" width="32%" />
-  <img src="./public/screenshots/02.png" width="32%" />
-  <img src="./public/screenshots/03.png" width="32%" />
+  <img src="./public/screenshots/02.png" width="49%" />
+  <img src="./public/screenshots/03.png" width="49%" />
+  <br/>
+  <img src="./public/screenshots/01.png" width="100%" />
 </div>
 
 ---
