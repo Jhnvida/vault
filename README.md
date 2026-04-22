@@ -1,69 +1,74 @@
-<div align="center">
-  <img src="./public/screenshots/02.png" width="49%" />
-  <img src="./public/screenshots/03.png" width="49%" />
-  <br/>
-  <img src="./public/screenshots/01.png" width="100%" />
-</div>
+# Vault
 
----
+Simulador de abertura de caixas (case opening). O projeto permite comprar caixas, abrir multiplas unidades por rodada, visualizar animacao de roleta e gerenciar itens no inventario.
 
-## Sobre
+![Preview do Vault](public/readme-preview.png)
 
-Vault é um simulador de abertura de caixas. Você começa com um saldo, compra caixas no mercado e as abre para ganhar itens. Cada item tem uma raridade que define seu valor. Venda o que não precisar e continue jogando.
+## Visao geral
 
----
+- Mercado com varias caixas e custos progressivos
+- Abertura em lote (1, 2, 3, 5 e 10 unidades)
+- Sistema de raridade com chances e multiplicadores por nivel
+- Animacao de roleta para revelar os itens obtidos
+- Inventario com filtros por raridade e venda individual/em massa
+- Controle de saldo em tempo real
 
-## O que dá pra fazer
+## Stack
 
-- Comprar caixas de diferentes preços no mercado
-- Abrir de 1 a 10 caixas de uma vez com animação de roleta
-- Ver todos os itens que você ganhou no inventário
-- Vender itens para recuperar saldo
+- `Nuxt 4`
+- `Vue 3`
+- `Tailwind CSS`
+- `@nuxt/icon`
+- `TypeScript`
 
----
+## Requisitos
 
-## Raridades
+- Node.js 20+ (recomendado LTS)
+- npm (ou outro gerenciador compativel)
 
-| Raridade     | Cor      | Chance | Valor         |
-| ------------ | -------- | :----: | :-----------: |
-| Comum        | Cinza    | 75%    | 0.4x o custo  |
-| Incomum      | Azul     | 18%    | 1.2x o custo  |
-| Raro         | Roxo     | 5%     | 3.5x o custo  |
-| Épico        | Vermelho | 1.5%   | 12x o custo   |
-| Relíquia     | Dourado  | 0.5%   | 45x o custo   |
-
----
-
-## Caixas
-
-| Caixa       | Preço      |
-| ----------- | ---------- |
-| Caixote     | R$ 10      |
-| Enferrujada | R$ 50      |
-| Lacrada     | R$ 150     |
-| Blindada    | R$ 500     |
-| Cofre       | R$ 1.200   |
-| Preciosa    | R$ 3.000   |
-| Cripta      | R$ 7.500   |
-| Lendária    | R$ 15.000  |
-| Absurda     | R$ 50.000  |
-| Absoluta    | R$ 100.000 |
-
----
-
-## Tecnologias
-
-- **Nuxt** com Vue 3 e TypeScript
-- **Tailwind CSS** para estilização
-- **@nuxt/icon** com ícones Lucide
-
----
-
-## Como rodar
+## Instalacao
 
 ```bash
 npm install
+```
+
+## Desenvolvimento
+
+Inicie o servidor local em `http://localhost:3000`:
+
+```bash
 npm run dev
 ```
 
-Acesse em `http://localhost:3000`.
+## Build e preview
+
+Gerar build de producao:
+
+```bash
+npm run build
+```
+
+Visualizar build localmente:
+
+```bash
+npm run preview
+```
+
+Gerar versao estatica:
+
+```bash
+npm run generate
+```
+
+## Scripts
+
+- `npm run dev`: ambiente de desenvolvimento
+- `npm run build`: build de producao
+- `npm run preview`: preview da build
+- `npm run generate`: geracao estatica
+
+## Observacoes
+
+- Saldo inicial padrao: `1000`.
+- O valor do item recebido depende da raridade sorteada.
+- Os itens podem ser vendidos individualmente ou por filtro de raridade.
